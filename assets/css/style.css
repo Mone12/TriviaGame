@@ -1,0 +1,16 @@
+body {
+    background: url("../images/c3nJf1b.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.container {
+    margin-top: 120px;
+    padding-top: 30px;
+    height: 500px;
+    text-align: center;
+    background-color: white;
+}
+.get-started {
+    margin-top: 70px;
+    size: 100px;
+}
