@@ -71,44 +71,56 @@ var definePush = [];
 var userGuess = "";
 var timerRuns = false;
 var intervalid;
+var Qtext;
 
 // game starts when uses click "#start-button"
 
 $("#start-button").on("click",function(){
     $("#start-button").hide();
-    displayQuestion();
-    runTimer();
+    displayQuestion(trivia);
+    secondsTimer();
     for (var i = 0; i < trivia.length; i++) {
         definePush.push(trivia[i]);
-        
-    };
+        }
+    })
 
-    function displayQuestion(){
-
-    };
-    function runTimer(){
+    // function to start timer
+     
+function secondsTimer(){
     intervalid = setInterval(decrement,1000);
     }
-})
 
-    function decrement(){
+// Displays seconds on HTML and counts 'twentySeconds' down 
+function decrement(){
+        
     twentySeconds--;
 
     $("#time-left").html("<h3>Time Remaining:" + twentySeconds + "</h3>");
-
-   
-        if (twentySeconds === 0) {
-        unanswered++;
-        stop();
+    
+    // timer restarts to 20 seconds after hitting zero and unanswered var goes up 1
+    if (twentySeconds === 0) {
+            unanswered++;
+            twentySeconds = 20;
+            decrement();
         console.log(unanswered);
+        }
+    }   
+    
+    // Function to displays questions
+function displayQuestion(trivia){
 
-      }
-}
+        $("#questions-page").html("<h3>" + trivia[0].question + "</h3>");
+        for (var i = 0; i < trivia.length; i++);
+
+        }
+    
+    
+
+    
 
     function stop(){
-        clearInterval(intervalid);
-}
-
+        clearInterval(intervalid)
+       }
 
 
 
@@ -119,4 +131,5 @@ $("#start-button").on("click",function(){
 // if user guesses the right answer than hid question and show answer for five seconds
 // if timers runs out show answer and display next question plus restart timer
 // create function for results after last question
-});
+console.log(trivia.question);
+    })
