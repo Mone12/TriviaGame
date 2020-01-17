@@ -96,7 +96,7 @@ $(document).ready(function() {
   var definePush = [];
   var userGuess = "";
   var timerRuns = false;
-  var intervalid;
+  var intervalid =0;
   var Qtext;
 
   // game starts when uses click "#start-button"
@@ -168,7 +168,7 @@ $(document).ready(function() {
   function messageUser(msg) {
     stop();
     $("#message").html(`<h4>${msg}</h4>`);
-    setTimeout(next, 3000);
+    setTimeout(next, 1000);
   }
 
   function next() {
@@ -185,25 +185,25 @@ $(document).ready(function() {
   // show the results
   function results() {
     console.log("stop", correct, incorrect, unanswered);
-    stop();
+    
     $("#time-left").hide();
     $("#questions-page").hide();
     $("#answers-page").hide();
 
     
-    messageUser("Game Over! Here's Your Results:");
-
+    // messageUser("Game Over! Here's Your Results:");
+    $("#results-page").append("<h4> Game Over! Here are your results:</h4>")
     $("#results-page").append("<h3>Correct:"+ correct + "</h3>"); 
     $("#results-page").append("<h3>Incorrect:"+ incorrect + "</h3>");
     $("#results-page").append("<h3>Unanswered:"+ unanswered + "</h3>");
     
-    
+    stop();
   }
 
 
 
 
-  function restart() {
+   function restart() {
     $("#results-page").hide();
     correct = 0;
     incorrect = 0;
@@ -211,10 +211,10 @@ $(document).ready(function() {
 
     $("start-button").show()
     
-      displayQuestion();
-      secondsTimer();
+      
     
   }
+ 
 
   
   
