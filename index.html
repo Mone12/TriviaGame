@@ -18,17 +18,26 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="https://kit.fontawesome.com/1b542fd9fc.js" crossorigin="anonymous"></script>
+
+
   </head>
   <body>
+      <h1 class="text-center">Trivia Game: 90's Cartoons Edition!</h1>
     <div class="row">
-      <div class="col-md-2"></div>
+        
+      <div class="col-md-2">
 
+         
+    </div>
+      
       <div class="col-md-8">
         <div class="container rounded">
-          <h1>Trivia Game</h1>
-          <h2>90's Cartoons Edition!</h2>
+
+          <p id="lets-play">Press play button to start game!</p>
+         
           <!-- Count down -->
-          <div id="time-left"></div>
+          <div class="timer" id="time-left"></div>
           <!-- Questions -->
           <div id="questions-page"></div>
           <!-- answers -->
@@ -40,14 +49,16 @@
           <!-- results -->
           <div id="results-page"></div>
           <!-- Start Button -->
-          <button
+
+          <i id ="start-button" class="far fa-play-circle fa-10x"></i>
+          <!-- <button
             type="button"
             id="start-button"
             class="btn btn-secondary btn-lg get-started"
             id="start-button"
           >
             Get Started!
-          </button>
+          </button> -->
 
           
         </div>

@@ -111,6 +111,7 @@ $(document).ready(function() {
   
   $("#start-button").on("click", function() {
     $("#start-button").hide();
+    $("#lets-play").hide();
     displayQuestion();
     secondsTimer();
     
@@ -150,12 +151,12 @@ $(document).ready(function() {
     for (let j = 0; j < trivia[index].options.length; j++) {
       // create a button for the choices
       var b = $("<button>");
-      b.addClass("choice-btn");
+      b.addClass("btn-warning btn-lg");
       b.attr("answer", j);
       b.text(trivia[index].options[j]);
       $("#answers-page").append(b);
     }
-    $(".choice-btn").on("click", function() {
+    $(".btn-warning").on("click", function() {
       var answer = $(this).attr("answer");
       console.log("clicked", answer);
 
@@ -164,6 +165,7 @@ $(document).ready(function() {
       if (trivia[index].answer === parseInt(answer)) {
         correct++;
         messageUser("correct!");
+        $("#image-page").html("<img src=" + trivia[index].photo + ">");
       } else {
         incorrect++;
         messageUser("incorrect!");
